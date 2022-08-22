@@ -37,7 +37,6 @@ double max = Int32.MinValue;
 for (int a = 0; a < array.Length; a++)
 {
     if (array[a] > max) max = array[a];
-
     if (array[a] < min) min = array[a];
 }
 
