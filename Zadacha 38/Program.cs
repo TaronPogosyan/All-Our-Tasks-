@@ -31,13 +31,13 @@ void PrintArray(double[] array)
 PrintArray(array);
 
 
-double min = Int32.MaxValue;
-double max = Int32.MinValue;
+double minMas = Int32.MaxValue;
+double maxMas = Int32.MinValue;
 
 for (int a = 0; a < array.Length; a++)
 {
-    if (array[a] > max) max = array[a];
-    if (array[a] < min) min = array[a];
+    if (array[a] > maxMas) maxMas = array[a];
+    if (array[a] < minMas) minMas = array[a];
 }
 
-Console.WriteLine($"Разницу между максимальным и минимальным элементами массива: {max - min}.");
+Console.WriteLine($"Разницу между максимальным и минимальным элементами массива: {maxMas - minMas}.");
