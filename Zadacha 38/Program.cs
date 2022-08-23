@@ -26,7 +26,7 @@ void PrintArray(double[] array)
         else Console.Write($"{array[i]}");
     }
     Console.Write("]");
-    Console.WriteLine();
+    Console.WriteLine(); // Строка
 }
 PrintArray(array);
 
