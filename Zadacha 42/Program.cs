@@ -59,13 +59,13 @@ Console.WriteLine(result);
 
 
 // Варриант 3
-int number = 13;
+// int number = 13;
 
-void DecToBin(int num)
-{
-    if (num == 0) return;
-    DecToBin(num / 2);
-    Console.Write(num % 2);
-}
+// void DecToBin(int num)
+// {
+//     if (num == 0) return;
+//     DecToBin(num / 2);
+//     Console.Write(num % 2);
+// }
 
-DecToBin(number);
+// DecToBin(number); // Вариан 3

@@ -39,4 +39,4 @@ for (int a = 0; a < array.Length; a++)
     if (array[a] % 2 == 0)
         count++;
 }
-Console.WriteLine($"Чётных чисел в массиве: {count}.");
+Console.WriteLine($"Количество чётных чисел в массиве: {count}.");

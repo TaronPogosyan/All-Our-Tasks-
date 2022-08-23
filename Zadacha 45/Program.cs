@@ -13,6 +13,7 @@ int[] ReturnArray(int[] array)
 }
 
 int[] arr1 = CreateArray(10, 1, 20);
+
 PrintArray(arr1);
 int[] arr2 = ReturnArray(arr1);
 PrintArray(arr2);
