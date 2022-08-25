@@ -30,3 +30,24 @@ double[] Decision(double[,] coeff)
     crossPoint[1] = crossPoint[0] * coeff[0, 0] + coeff[0, 1];
     return crossPoint;
 }
+
+
+void OutputResponse(double[,] coeff)
+{
+    if (coeff[0, 0] == coeff[1, 0] && coeff[0, 1] == coeff[1, 1])
+    {
+        Console.Write($"\nПрямые совпадают");
+    }
+    else if (coeff[0, 0] == coeff[1, 0] && coeff[0, 1] != coeff[1, 1])
+    {
+        Console.Write($"\nПрямые параллельны");
+    }
+    else
+    {
+        Decision(coeff);
+        Console.Write($"\nТочка пересечения прямых: ({crossPoint[0]}, {crossPoint[1]})");
+    }
+}
+
+InputCoefficients();
+OutputResponse(coeff);
