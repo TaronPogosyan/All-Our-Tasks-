@@ -5,49 +5,47 @@
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 
-Console.WriteLine($"\nЗадача 43.  Найти точку пересечения двух прямых \n");
-
-double[,] coeff = new double[2, 2];
-double[] crossPoint = new double[2];
+double[,] values = new double[2, 2];
+double[] interPoint = new double[2];
 
 void InputCoefficients()
 {
-    for (int i = 0; i < coeff.GetLength(0); i++)
+    for (int i = 0; i < values.GetLength(0); i++)
     {
-        Console.Write($"Введите коэффициенты {i + 1}-го уравнения (y = k * x + b):\n");
-        for (int j = 0; j < coeff.GetLength(1); j++)
+        Console.WriteLine($"Заданных уравнениями (y = k * x + b): {i + 1}");
+        for (int j = 0; j < values.GetLength(1); j++)
         {
-            if (j == 0) Console.Write($"Введите коэффициент k: ");
-            else Console.Write($"Введите коэффициент b: ");
-            coeff[i, j] = Convert.ToInt32(Console.ReadLine());
+            if (j == 0) Console.Write($"Введите значения k: ");
+            else Console.Write($"Введите значения b: ");
+            values[i, j] = Convert.ToInt32(Console.ReadLine());
         }
     }
 }
 
-double[] Decision(double[,] coeff)
+double[] Decision(double[,] values)
 {
-    crossPoint[0] = (coeff[1, 1] - coeff[0, 1]) / (coeff[0, 0] - coeff[1, 0]);
-    crossPoint[1] = crossPoint[0] * coeff[0, 0] + coeff[0, 1];
-    return crossPoint;
+    interPoint[0] = (values[1, 1] - values[0, 1]) / (values[0, 0] - values[1, 0]);
+    interPoint[1] = interPoint[0] * values[0, 0] + values[0, 1];
+    return interPoint;
 }
 
 
-void OutputResponse(double[,] coeff)
+void OutputResponse(double[,] values)
 {
-    if (coeff[0, 0] == coeff[1, 0] && coeff[0, 1] == coeff[1, 1])
+    if (values[0, 0] == values[1, 0] && values[0, 1] == values[1, 1])
     {
-        Console.Write($"\nПрямые совпадают");
+        Console.Write($"Совпадают");
     }
-    else if (coeff[0, 0] == coeff[1, 0] && coeff[0, 1] != coeff[1, 1])
+    else if (values[0, 0] == values[1, 0] && values[0, 1] != values[1, 1])
     {
-        Console.Write($"\nПрямые параллельны");
+        Console.Write($"Не совпадают");
     }
     else
     {
-        Decision(coeff);
-        Console.Write($"\nТочка пересечения прямых: ({crossPoint[0]}, {crossPoint[1]})");
+        Decision(values);
+        Console.Write($"Точка пересечения двух прямых: ({interPoint[0]}, {interPoint[1]})");
     }
 }
 
 InputCoefficients();
-OutputResponse(coeff);
+OutputResponse(values);
