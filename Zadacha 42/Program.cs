@@ -6,20 +6,20 @@
 
 
 //Вариант 1 (робочий)
-Console.WriteLine("Введите целое положительное число: ");
-int num = int.Parse(Console.ReadLine());
+// Console.WriteLine("Введите целое положительное число: ");
+// int num = int.Parse(Console.ReadLine());
 
-int result = 0;
-int mult = 1;
+// int result = 0;
+// int mult = 1;
 
-while (num > 0)
-{
-    result += num % 2 * mult;
-    num = num / 2;
-    mult *= 10;
-}
+// while (num > 0)
+// {
+//     result += num % 2 * mult;
+//     num = num / 2;
+//     mult *= 10;
+// }
 
-Console.WriteLine(result);
+// Console.WriteLine(result);
 
 
 
@@ -59,13 +59,15 @@ Console.WriteLine(result);
 
 
 // Варриант 3
-// int number = 13;
+// string[] str = Console.ReadLine().Split();
 
-// void DecToBin(int num)
-// {
-//     if (num == 0) return;
-//     DecToBin(num / 2);
-//     Console.Write(num % 2);
-// }
+int number = 13;
 
-// DecToBin(number); // Вариан 3
+void DecToBin(int num)
+{
+    if (num == 0) return;
+    DecToBin(num / 2);
+    Console.Write(num % 2);
+}
+
+DecToBin(number);
