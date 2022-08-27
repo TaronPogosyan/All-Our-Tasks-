@@ -5,47 +5,47 @@
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 
-double[,] values = new double[2, 2];
-double[] interPoint = new double[2];
+// Вариант 1
+double[,] matrix = new double[2, 2];
+double[] sum = new double[2];
 
-void InputCoefficients()
+void BothMatrix()
 {
-    for (int i = 0; i < values.GetLength(0); i++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        Console.WriteLine($"Заданных уравнениями (y = k * x + b): {i + 1}");
-        for (int j = 0; j < values.GetLength(1); j++)
+        Console.WriteLine($"{i + 1}-ое заданных уравнениями (y = k * x + b).");
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
             if (j == 0) Console.Write($"Введите значения k: ");
             else Console.Write($"Введите значения b: ");
-            values[i, j] = Convert.ToInt32(Console.ReadLine());
+            matrix[i, j] = Convert.ToInt32(Console.ReadLine());
         }
     }
 }
+BothMatrix();
 
-double[] Decision(double[,] values)
+double[] Solution(double[,] matrix)
 {
-    interPoint[0] = (values[1, 1] - values[0, 1]) / (values[0, 0] - values[1, 0]);
-    interPoint[1] = interPoint[0] * values[0, 0] + values[0, 1];
-    return interPoint;
+    sum[0] = (matrix[1, 1] - matrix[0, 1]) / (matrix[0, 0] - matrix[1, 0]);
+    sum[1] = sum[0] * matrix[0, 0] + matrix[0, 1];
+    return sum;
 }
 
 
-void OutputResponse(double[,] values)
+void PrintMatrix(double[,] matrix)
 {
-    if (values[0, 0] == values[1, 0] && values[0, 1] == values[1, 1])
+    if (matrix[0, 0] == matrix[1, 0] && matrix[0, 1] == matrix[1, 1])
     {
         Console.Write($"Совпадают");
     }
-    else if (values[0, 0] == values[1, 0] && values[0, 1] != values[1, 1])
+    else if (matrix[0, 0] == matrix[1, 0] && matrix[0, 1] != matrix[1, 1])
     {
         Console.Write($"Не совпадают");
     }
     else
     {
-        Decision(values);
-        Console.Write($"Точка пересечения двух прямых: ({interPoint[0]}, {interPoint[1]})");
+        Solution(matrix);
+        Console.Write($"Точка пересечения двух прямых: ({sum[0]}, {sum[1]})");
     }
 }
-
-InputCoefficients();
-OutputResponse(values);
+PrintMatrix(matrix);
